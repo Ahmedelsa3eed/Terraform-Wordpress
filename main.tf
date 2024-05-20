@@ -14,3 +14,9 @@ module "ec2" {
     public_subnet_id  = module.vpc.public_subnet_id
     private_subnet_id = module.vpc.private_subnet_id
 }
+
+module "mysql" {
+    source   = "./modules/mysql"
+    vpc_id   = module.vpc.vpc_id
+    subnet_id = module.vpc.public_subnet_id # TODO: Change this to private subnet
+}

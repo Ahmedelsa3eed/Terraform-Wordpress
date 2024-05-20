@@ -1,5 +1,5 @@
 resource "aws_security_group" "saeed_terraform_sg" {
-    name = "saeed-terraform-sg-"
+    name = "saeed-terraform-ec2-sg-"
     vpc_id      = var.vpc_id
 
     ingress {
@@ -31,6 +31,6 @@ resource "aws_security_group" "saeed_terraform_sg" {
     }
 
     tags = {
-        Name = "saeed-terraform-sg"
+        Name = "saeed-terraform-ec2-sg"
     }
 }
