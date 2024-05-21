@@ -6,7 +6,7 @@ resource "aws_launch_template" "wordpress" {
 
     network_interfaces {
         subnet_id       = var.public_subnet_id
-        security_groups = [aws_security_group.saeed_terraform_sg.id]
+        security_groups = [var.ec2_sg_id]
     }
 
     tag_specifications {

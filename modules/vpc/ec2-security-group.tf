@@ -1,6 +1,6 @@
-resource "aws_security_group" "saeed_terraform_sg" {
-    name = "saeed-terraform-ec2-sg-"
-    vpc_id      = var.vpc_id
+resource "aws_security_group" "ec2_sg" {
+    name = "saeed-terraform-ec2-sg"
+    vpc_id      = aws_vpc.main.id
 
     ingress {
         from_port   = 22

@@ -1,7 +1,7 @@
 resource "aws_security_group" "mysql_sg" {
     name        = "saeed-mysql-sg"
     description = "Allow MySQL traffic"
-    vpc_id      = var.vpc_id
+    vpc_id      = aws_vpc.main.id
 
     ingress {
         from_port   = 3306
@@ -25,6 +25,6 @@ resource "aws_security_group" "mysql_sg" {
     }
 
     tags = {
-        Name = "mysql-sg"
+        Name = "saeed-mysql-sg"
     }
 }

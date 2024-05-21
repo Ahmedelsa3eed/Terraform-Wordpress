@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
     vpc_id            = aws_vpc.main.id
-    cidr_block        = "10.0.1.0/24"
+    cidr_block        = "10.0.4.0/24"
     map_public_ip_on_launch = true
     availability_zone = var.availability_zone
 
@@ -16,7 +16,6 @@ resource "aws_subnet" "public" {
         Name = "saeed-terraform-public"
     }
 }
-
 resource "aws_subnet" "private" {
     vpc_id     = aws_vpc.main.id
     cidr_block = "10.0.2.0/24"
@@ -24,5 +23,16 @@ resource "aws_subnet" "private" {
 
     tags = {
         Name = "saeed-terraform-private"
+    }
+}
+
+resource "aws_subnet" "public-2" {
+    vpc_id            = aws_vpc.main.id
+    cidr_block        = "10.0.3.0/24"
+    map_public_ip_on_launch = true
+    availability_zone = var.availability_zone_2
+
+    tags = {
+        Name = "saeed-terraform-public-2"
     }
 }
