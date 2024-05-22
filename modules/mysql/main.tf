@@ -3,12 +3,16 @@ resource "aws_instance" "mysql" {
     instance_type = "t3.small"
     key_name      = "saeed-project-key"
     subnet_id     = var.subnet_id
-    security_groups = [var.mysql_sg_id]
+    vpc_security_group_ids = [var.mysql_sg_id]
 
     user_data = filebase64("${path.module}/user-data.sh")
 
     provisioner "local-exec" {
         command = "echo '${aws_instance.mysql.private_ip}' > mysql_private_ip"
+    }
+
+    lifecycle {
+        prevent_destroy = true
     }
 
     tags = {

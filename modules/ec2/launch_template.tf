@@ -1,7 +1,7 @@
 resource "aws_launch_template" "wordpress" {
     name          = "saeed-terraform-wordpress-template"
     image_id      = var.ami
-    instance_type = "t3.small"
+    instance_type = "t3.medium"
     key_name      = "saeed-project-key"
 
     network_interfaces {
