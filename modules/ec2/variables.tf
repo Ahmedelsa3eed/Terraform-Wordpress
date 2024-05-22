@@ -8,6 +8,7 @@ variable "ec2_sg_id" {
 
 variable "subnets" {
     description = "The ID of the public subnet"
+    type = list(string)
 }
 
 variable "public_subnet_id" {
@@ -20,4 +21,9 @@ variable "private_subnet_id" {
 
 variable "ami" {
     description = "The AMI to use for the EC2 instance"
+}
+
+output "load_balancer_dns_name" {
+    description = "LoadBalancer dns name"
+    value = aws_lb.wordpress_alb.dns_name
 }

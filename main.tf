@@ -30,5 +30,9 @@ resource "null_resource" "update-docker-compose" {
         command = "bash ./update_docker_compose.sh"
     }
     
+	triggers = {
+        mysql_private_ip = module.mysql.mysql_private_ip
+    }
+	
     depends_on = [module.mysql]
 }
