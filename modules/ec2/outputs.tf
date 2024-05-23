@@ -10,3 +10,7 @@ output "load_balancer_dns_name" {
 output "launch_template_latest_version" {
   value = aws_launch_template.wordpress.latest_version
 }
+
+output "auto_scaling_group_name" {
+  value = aws_autoscaling_group.wordpress.name
+}

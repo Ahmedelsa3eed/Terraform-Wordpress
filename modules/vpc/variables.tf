@@ -11,3 +11,19 @@ variable "availability_zone_2" {
 variable "public_route_name" {
     default = "saeed-terraform-public-route"
 }
+
+variable "private_route_name" {
+    default = "saeed-terraform-private-route"
+}
+
+variable "cidr_from_anywhere" {
+    default = "0.0.0.0/0"
+}
+
+variable "natgateway_name" {
+    default = "saeed-terraform-ngw"
+}
+
+variable "internet_gateway_name" {
+    default = "saeed-terraform-igw"
+}

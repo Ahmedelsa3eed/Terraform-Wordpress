@@ -1,6 +1,27 @@
 #!/bin/bash
+# Install docker
+apt-get update
+apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+apt-get update
+apt-get install -y docker-ce
+usermod -aG docker ubuntu
 
-# Clone repo that contains the docker-compose file
-git clone -b update-db-host https://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@github.com/Ahmedelsa3eed/wordpress-docker.git
-cd wordpress-docker/
-docker compose up --build
+# Install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+sudo usermod -aG docker $USER
+# Clone the GitHub repository
+git clone -b update-db-host https://github.com/Ahmedelsa3eed/wordpress-docker.git
+
+# Navigate to the cloned directory
+cd wordpress-docker
+
+# Start the Docker container
+sudo docker-compose up
